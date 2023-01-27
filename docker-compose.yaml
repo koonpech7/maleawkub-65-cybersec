@@ -6,5 +6,5 @@ services:
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
-      - 5566:5432
+      - 54321:5432
     restart: always
