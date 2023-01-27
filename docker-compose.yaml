@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: mypgAdmin
+    container_name: mygroup-db
     image: postgres:latest
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
