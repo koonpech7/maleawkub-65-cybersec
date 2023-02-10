@@ -1,10 +1,20 @@
 version: '3'
 services:
   db:
-    container_name: mygroup-db
+    container_name: mydbpgAdmin4
     image: postgres:latest
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - 54321:5432
     restart: always
+  auth:
+    container_name: ced-auth
+    image: fusionauth/fusionauth-app
+    ports:
+      - 9011:9011
+    restart: always
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/ced_dev
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=${DB_PASSWORD}
